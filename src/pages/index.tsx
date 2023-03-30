@@ -6,6 +6,27 @@ import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
+type LinkCardProps = {
+  path: string;
+  title: string;
+  desc: string;
+}
+
+function LinkCard({path, title, desc}: LinkCardProps) {
+  return (
+    <>
+      <Link className={styles.card} href={path}>
+            <h2 className={inter.className}>
+              {title} <span>-&gt;</span>
+            </h2>
+            <p className={inter.className}>
+              {desc}
+            </p>
+      </Link>
+    </>
+  )
+}
+
 export default function Home() {
   return (
     <>
@@ -125,6 +146,11 @@ export default function Home() {
               View drinks list endpoint
             </p>
           </Link>
+          <LinkCard 
+            path="/drinks"
+            title="Drink Path2"
+            desc="View list of drinks as own component test"
+          />
         </div>
       </main>
     </>
