@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@component/styles/Home.module.css'
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -116,6 +117,14 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
+          <Link className={styles.card} href="/drinks">
+            <h2 className={inter.className}>
+              Drinks <span>-&gt;</span>
+            </h2>
+            <p className={inter.className}>
+              View drinks list endpoint
+            </p>
+          </Link>
         </div>
       </main>
     </>
