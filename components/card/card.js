@@ -1,5 +1,6 @@
 import styles from './card.module.css'
 import Image from 'next/image'
+import CardFooter from './card-footer'
 
 export default function Card({ drink }) {
 
@@ -19,6 +20,7 @@ export default function Card({ drink }) {
       <div className={styles.cardContent}>
         <h2>{drink.displayName}</h2>
       </div>
+      <CardFooter />
     </div>
     </>
   )
