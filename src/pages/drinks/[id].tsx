@@ -37,12 +37,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-export default function Drink({ drinkData }) {
+export default function Drink({ drinkData }: any) {
   return (
     <Layout>
       <h1 className={utilStyles.headingLg}>{drinkData.name}</h1>
       <p>{drinkData.description}</p>
       <p>{drinkData.instructions}</p>
+      {drinkData.drinkIngredients.map((drinkIngredient: any) => (
+        <p>{drinkIngredient.measurement} {drinkIngredient.displayName}</p>
+      ))}
     </Layout>
   )
 }
