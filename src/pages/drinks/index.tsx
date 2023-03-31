@@ -7,6 +7,9 @@ import utilStyles from '../../styles/utils.module.css';
 const inter = Inter({ subsets: ['latin'] })
 import { GetStaticProps } from 'next';
 import { Drink } from '../../../types/drink';
+import Card from '../../../components/card/card'
+import CardContainer from '../../../components/card/card-container'
+import Header from '../../../components/header/header'
 
 export const getStaticProps: GetStaticProps = async () => {
   const drinks: Drink[] = await fetchAllDrinks()
@@ -22,24 +25,12 @@ export default function Drinks({ drinks }: any) {
   return (
     <>
     <Layout>
-    <h1>Drinks list page</h1>
-    <Link className={styles.card} href="/">
-      <h2 className={inter.className}>
-        Home <span>-&gt;</span>
-      </h2>
-      <p className={inter.className}>
-        Go back to homepage
-      </p>
-    </Link>
-    <ul className={utilStyles.list}>
-      {drinks.map((drinkData: Drink) => (
-        <li className={utilStyles.listItem} key={drinkData.id}>
-          {drinkData.name}
-          <br/>
-          {drinkData.description}
-        </li>
-      ))}
-    </ul>
+      <Header />
+      <CardContainer>
+        {drinks.map((drinkData: Drink) => (
+          <Card drink={drinkData} key={drinkData.id}/>
+        ))}
+      </CardContainer>
     </Layout>
     </>
   )

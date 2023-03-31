@@ -1,6 +1,8 @@
 export interface Drink {
   id: number,
   name: string,
-  description: string,
+  displayName: string,
+  description?: string,
   instructions: string,
+  drinkIngredients?: [],
 }
