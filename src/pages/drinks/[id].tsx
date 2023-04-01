@@ -1,7 +1,7 @@
-import { fetchAllDrinkIDs, fetchDrinkDataByID } from "../../../lib/drinks"
+import { fetchAllDrinkIDs, fetchDrinkDataByID } from "../../lib/drinks"
 import { GetStaticPaths, GetStaticProps } from 'next';
 import utilStyles from '../../styles/utils.module.css'
-import Layout from '../../../components/layout'
+import Layout from '../../components/layout'
 // import { Drink } from '../../../types/drink'
 
 export const getStaticPaths: GetStaticPaths = async () => {
