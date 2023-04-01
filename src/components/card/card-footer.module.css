@@ -6,22 +6,23 @@
 }
 
 .container :hover {
-  background-color: purple
+  background-color: darkgray;
 }
 
 .expandMoreButton {
   width: 100%;
   background-color: lightgray;
   border: none;
-  border-radius: 0px 0px 10px 10px;
-}
-
-.expandMoreButton.expanded {
-  rotate: 180deg;
-  transition: rotate 1s;
+  border-radius: 0 0 10px 10px;
 }
 
 .expandMoreIcon {
   font-size: 2rem;
   color: black;
+  border-radius: 0 0 10px 10px;
+  width: 100%
+}
+
+.blackme {
+  color: black
 }
