@@ -1,7 +1,7 @@
 import styles from './header.module.css';
 import Link from 'next/link'
 
-export default function Header() {
+export default function Header({ children }) {
   return (
     <div className={styles.container}>
       <h1>Drinks list page</h1>
@@ -13,6 +13,8 @@ export default function Header() {
           Go back to homepage
         </p>
       </Link>
+
+      { children } 
     </div>
   )
 }

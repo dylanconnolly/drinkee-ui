@@ -20,7 +20,9 @@ export default function Card({ drink }) {
       <div className={styles.cardContent}>
         <h2>{drink.displayName}</h2>
       </div>
-      <CardFooter />
+      <CardFooter
+        data={drink.instructions}
+      />
     </div>
     </>
   )
