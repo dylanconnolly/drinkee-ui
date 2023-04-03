@@ -10,10 +10,10 @@ import { Drink } from '../../types/drink';
 import Card from '../../components/card/card'
 import CardContainer from '../../components/card/card-container'
 import Header from '../../components/header/header'
+import ExpandMoreButton from '@component/components/buttons/ExpandMoreButton';
 
 export const getStaticProps: GetStaticProps = async () => {
   const drinks: Drink[] = await fetchAllDrinks()
-
   return {
     props: {
       drinks,
@@ -22,10 +22,16 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 export default function Drinks({ drinks }: any) {
+
+  const handleExpand = () => {
+    console.log('Button expanded!');
+  };
   return (
     <>
     <Layout>
-      <Header />
+      <Header>
+        <ExpandMoreButton />
+      </Header>
       <CardContainer>
         {drinks.map((drinkData: Drink) => (
           <Card drink={drinkData} key={drinkData.id}/>
