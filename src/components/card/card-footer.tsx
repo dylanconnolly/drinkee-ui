@@ -12,12 +12,17 @@ export default function CardFooter ({ data }: any) {
     // event.currentTarget.firstElementChild.classList.toggle('up')
   }
 
+  const showDetailsClassName = expanded ? styles.blackmeShow : styles.blackmeHidden
+
   return (
     <>
     <div className={styles.container}>
       <ExpandMoreButton isExpanded={expanded} onClick={handleExpandClick} />
     </div>
-      { expanded ? <p className={styles.blackme}>{data}</p>: ''}  
+      {/* { expanded ? <p className={styles.blackme}>{data}</p>: ''}   */}
+    <p className={showDetailsClassName}>
+      {data}
+    </p>
     </>
   )
 }

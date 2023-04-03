@@ -30,7 +30,6 @@ export default function Drinks({ drinks }: any) {
     <>
     <Layout>
       <Header>
-        <ExpandMoreButton />
       </Header>
       <CardContainer>
         {drinks.map((drinkData: Drink) => (

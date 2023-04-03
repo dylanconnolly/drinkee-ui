@@ -12,17 +12,17 @@
 .button {
   display: flex;
   align-items: center;
-  background: transparent;
+  background: lightgray;
   height: 40px;
   width: 40px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
   border-radius: 50%
 }
 
-.text {
-  margin-right: 8px;
+.button :hover {
+  background: darkgray;
 }
 
 .icon {

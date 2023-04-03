@@ -5,24 +5,12 @@
   justify-content: center;
 }
 
-.container :hover {
-  background-color: darkgray;
-}
-
-.expandMoreButton {
-  width: 100%;
-  background-color: lightgray;
-  border: none;
-  border-radius: 0 0 10px 10px;
-}
-
-.expandMoreIcon {
-  font-size: 2rem;
+.blackmeShow {
   color: black;
-  border-radius: 0 0 10px 10px;
-  width: 100%
+  background-color: lightgray;
+  transition: all 3s ease-in-out;
 }
 
-.blackme {
-  color: black
+.blackmeHidden {
+  display: none;
 }
