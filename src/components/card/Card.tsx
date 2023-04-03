@@ -21,7 +21,8 @@ export default function Card({ drink }: any) {
         <h2>{drink.displayName}</h2>
       </div>
       <CardFooter
-        data={drink.instructions}
+        instructions={drink.instructions}
+        ingredients={drink.drinkIngredients}
       />
     </div>
     </>
