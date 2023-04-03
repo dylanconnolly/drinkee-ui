@@ -7,10 +7,9 @@ import utilStyles from '../../styles/utils.module.css';
 const inter = Inter({ subsets: ['latin'] })
 import { GetStaticProps } from 'next';
 import { Drink } from '../../types/drink';
-import Card from '../../components/card/card'
-import CardContainer from '../../components/card/card-container'
+import Card from '../../components/card/Card'
+import CardContainer from '../../components/card/CardContainer'
 import Header from '../../components/header/header'
-import ExpandMoreButton from '@component/components/buttons/ExpandMoreButton';
 
 export const getStaticProps: GetStaticProps = async () => {
   const drinks: Drink[] = await fetchAllDrinks()

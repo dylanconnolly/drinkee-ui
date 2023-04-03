@@ -1,8 +1,8 @@
 import styles from './card.module.css'
 import Image from 'next/image'
-import CardFooter from './card-footer'
+import CardFooter from './CardFooter'
 
-export default function Card({ drink }) {
+export default function Card({ drink }: any) {
 
   return (
     <>

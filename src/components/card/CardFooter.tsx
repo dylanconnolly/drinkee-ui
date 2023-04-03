@@ -1,4 +1,4 @@
-import styles from './card-footer.module.css'
+import styles from './CardFooter.module.css'
 import { useState, MouseEvent } from 'react';
 import ExpandMoreButton from '../buttons/ExpandMoreButton';
 
