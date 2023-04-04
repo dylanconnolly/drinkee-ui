@@ -32,5 +32,5 @@ export const fetchGenerateCocktails = async(ingredients: Ingredient[], route: st
   const drinks: Drink[] = await resp.json()
 
   console.log('cocktails response', drinks);
-  return resp
+  return drinks
 }

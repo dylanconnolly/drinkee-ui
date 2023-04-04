@@ -8,6 +8,11 @@ import utilStyles from '@component/styles/utils.module.css';
 import MultiSearch from '@component/components/search-bar/MultiSearch';
 import { fetchAllIngredients } from '@component/lib/ingredients';
 import { Ingredient } from '@component/types/ingredients';
+import { useState } from 'react';
+import { Drink } from '@component/types/drink';
+import { fetchGenerateCocktails } from '@component/lib/drinks';
+import CardContainer from '@component/components/card/CardContainer';
+import Card from '@component/components/card/Card';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +27,16 @@ export const getStaticProps: GetStaticProps = async () => {
 
 
 export default function Home({ ingredients }: any) {
+  const [cocktails, setCocktails] = useState(new Array)
+
+  const getCocktails = async (selection: Ingredient[]) => {
+    console.log('options passed back to parent are', selection)
+    const resp = await fetchGenerateCocktails(selection, "generateCocktails?strict=true")
+    setCocktails(resp)
+  }
+
+  const showCocktailsClassName = (cocktails.length > 0) ? styles.cardContainerShow : styles.cardContainerHidden
+
   return (
     <>
       <Head>
@@ -98,9 +113,19 @@ export default function Home({ ingredients }: any) {
           </Link>
         </div>
 
-        <div className={styles.searchBarFullWidth}>
+        {/* <div className={styles.searchBarFullWidth}>
           <MultiSearch items={ingredients} submitText="Search Available Cocktails" route="generateCocktails?strict=true" />
+        </div> */}
+        <div className={styles.searchBarFullWidth}>
+          <MultiSearch items={ingredients} submitText="Search Available Cocktails" onClickFunc={getCocktails} />
         </div>
+
+        
+        <CardContainer className={showCocktailsClassName}>
+          {cocktails.map((data: Drink) => (
+             <Card drink={data} key={data.id}/>
+          ))}
+        </CardContainer>
       </main>
     </>
   )

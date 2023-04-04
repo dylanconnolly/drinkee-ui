@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { fetchGenerateCocktails } from '@component/lib/drinks';
 import { Ingredient } from '@component/types/ingredients';
 
-export default function MultiSearch({ items, submitText, route }: any) {
+export default function MultiSearch({ items, submitText, onClickFunc }: any) {
   const [selected, setSelected] = useState(new Array)
 
   // const apiRoute = `https://localhost:8080/api/v1/${route}`
@@ -20,8 +20,9 @@ export default function MultiSearch({ items, submitText, route }: any) {
     setSelected(selectedOptions)
   }
 
-  const handleSubmit = async () => {
-    console.log('options selected are:', selected);
+  const handleClick = async () => {
+    // console.log('options selected are:', selected);
+    console.log('click')
     
 
     if (selected.length < 1) {
@@ -32,9 +33,11 @@ export default function MultiSearch({ items, submitText, route }: any) {
     const ingredients: Ingredient[] = selected.map(selection => {
       return selection.value
     })
+
+    onClickFunc(ingredients)
     
-    const resp = await fetchGenerateCocktails(ingredients, route)
-    console.log(resp.body);
+    // const resp = await fetchGenerateCocktails(ingredients, route)
+    // console.log(resp.body);
   }
 
   return (
@@ -51,7 +54,7 @@ export default function MultiSearch({ items, submitText, route }: any) {
       />
     </label>
     <div className={styles.halfWidth}>
-      <button className={styles.btnCenter} type="button" onClick={handleSubmit}>{submitText}</button>
+      <button className={styles.btnCenter} type="button" onClick={handleClick}>{submitText}</button>
     </div>
     </>
   )
