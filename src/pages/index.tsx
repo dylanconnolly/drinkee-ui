@@ -1,34 +1,27 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { GetStaticProps } from 'next';
 import { Inter } from 'next/font/google'
 import styles from '@component/styles/Home.module.css'
 import Link from 'next/link';
 import utilStyles from '@component/styles/utils.module.css';
+import MultiSearch from '@component/components/search-bar/MultiSearch';
+import { fetchAllIngredients } from '@component/lib/ingredients';
+import { Ingredient } from '@component/types/ingredients';
 
 const inter = Inter({ subsets: ['latin'] })
 
-type LinkCardProps = {
-  path: string;
-  title: string;
-  desc: string;
+export const getStaticProps: GetStaticProps = async () => {
+  const ingredients = await fetchAllIngredients()
+  return {
+    props: {
+      ingredients,
+    },
+  }
 }
 
-function LinkCard({path, title, desc}: LinkCardProps) {
-  return (
-    <>
-      <Link className={styles.card} href={path}>
-        <h2 className={utilStyles.headingLg}>
-          {title} <span>-&gt;</span>
-        </h2>
-        <p className={utilStyles.heading}>
-          {desc}
-        </p>
-      </Link>
-    </>
-  )
-}
 
-export default function Home() {
+export default function Home({ ingredients }: any) {
   return (
     <>
       <Head>
@@ -38,50 +31,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
         <div className={styles.grid}>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -147,11 +96,10 @@ export default function Home() {
               View drinks list endpoint
             </p>
           </Link>
-          <LinkCard 
-            path="/drinks"
-            title="Drink Path2"
-            desc="View list of drinks as own component test"
-          />
+        </div>
+
+        <div className={styles.searchBarFullWidth}>
+          <MultiSearch items={ingredients} submitText="Search Available Cocktails" route="generateCocktails?strict=true" />
         </div>
       </main>
     </>
