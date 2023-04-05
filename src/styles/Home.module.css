@@ -79,6 +79,14 @@
   align-items: center;
 }
 
+.resultsContainerShow {
+  width: 100%
+}
+
+.resultsContainerHidden {
+  display: none;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {

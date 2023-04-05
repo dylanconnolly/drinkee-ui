@@ -10,33 +10,69 @@
 } */
 
 .button {
-  display: flex;
   align-items: center;
-  background: lightgray;
-  height: 40px;
-  width: 40px;
+  background: transparent;
   border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 var(--columbia-blue);
   cursor: pointer;
-  /* transition: all 0.3s ease-in-out; */
-  border-radius: 50%
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  scale: 1;
+  width: 40px;
 }
 
-.button :hover {
-  background: darkgray;
+.button:active {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  transition: all 0.01s;
+  box-shadow: 0 0 10px 2px var(--columbia-blue, 0.5);
+  /* border-radius: 50%; */
+  
+  /* animation: pulse 2s; */
+}
+
+.button:active:after {
+  box-shadow: 0 0 0 0 var(--columbia-blue);
+  opacity: 0.75;
+  transition: 0s;
+}
+
+.button:hover {
+  background: var(--columbia-blue);
+  opacity: 0.7;
 }
 
 .icon {
-  transition: all 0.3s ease-in-out;
-  height: 40px;
-  width: 40px;
+  color: var(--gray);
+  transition: all 0.2s ease-in-out;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
 }
 
+.button:hover .icon{
+  color: var(--anti-flash-white);
+  opacity: 0.7;
+}
+
 .iconExpanded {
-  /* animation-name: rotateIcon; */
-  transition: all 0.3s ease-in-out;
+  color: var(--gray);
+  transition: all 0.2s ease-in-out;
   transform: rotate(180deg);
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
+}
+
+.button:hover .iconExpanded {
+  color: var(--anti-flash-white);
 }

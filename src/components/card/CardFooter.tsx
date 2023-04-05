@@ -2,6 +2,7 @@ import styles from './CardFooter.module.css'
 import { useState, MouseEvent } from 'react';
 import ExpandMoreButton from '../buttons/ExpandMoreButton';
 import { DrinkIngredient } from '@component/types/drinkIngredient';
+import FavoriteButton from '../buttons/FavoriteButton';
 
 export default function CardFooter ({ instructions, ingredients }: any) {
   const [expanded, setExpanded] = useState(false);
@@ -18,6 +19,7 @@ export default function CardFooter ({ instructions, ingredients }: any) {
   return (
     <>
     <div className={styles.container}>
+      <FavoriteButton isFavorite={false} />
       <ExpandMoreButton isExpanded={expanded} onClick={handleExpandClick} />
     </div>
       {/* { expanded ? <p className={styles.blackme}>{data}</p>: ''}   */}

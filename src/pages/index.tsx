@@ -35,7 +35,7 @@ export default function Home({ ingredients }: any) {
     setCocktails(resp)
   }
 
-  const showCocktailsClassName = (cocktails.length > 0) ? styles.cardContainerShow : styles.cardContainerHidden
+  const showResultsClassName = (cocktails.length > 0) ? styles.resultsContainerShow : styles.resultsContainerHidden
 
   return (
     <>
@@ -120,12 +120,14 @@ export default function Home({ ingredients }: any) {
           <MultiSearch items={ingredients} submitText="Search Available Cocktails" onClickFunc={getCocktails} />
         </div>
 
-        
-        <CardContainer className={showCocktailsClassName}>
-          {cocktails.map((data: Drink) => (
-             <Card drink={data} key={data.id}/>
-          ))}
-        </CardContainer>
+        <div className={showResultsClassName}>
+          <h2>Results</h2>
+          <CardContainer>
+            {cocktails.map((data: Drink) => (
+              <Card drink={data} key={data.id}/>
+            ))}
+          </CardContainer>
+        </div>
       </main>
     </>
   )

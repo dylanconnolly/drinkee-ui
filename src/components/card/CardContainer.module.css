@@ -1,8 +1,10 @@
 .container {
   display: flex;
-  border: solid purple;
+  /* border: solid purple; */
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   gap: 1rem;
   margin: 2rem 0;
+  width: 100%;
 }
+
