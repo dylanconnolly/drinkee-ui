@@ -19,10 +19,3 @@
   /* font-family: 'Outfit', sans-serif; */
   color: black;
 }
-
-.cardFooter {
-  display: flex;
-  align-items: end;
-  color: black;
-  border: solid blue;
-}
